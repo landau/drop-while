@@ -17,7 +17,7 @@ function dropWhile(coll, pred, ctx) {}
 
 ```js
 var assert = require('assert');
-var dropWhile = require('./');
+var dropWhile = require('drop-while');
 var is = require('is-predicate');
 
 var arr = [-1, -2, -6, -7, 1, 2, 3, 4, -5, -6, 0, 1];
