@@ -8,7 +8,6 @@ function rest(arr) {
   return arr.slice(1);
 }
 
-
 /**
  * Returns an array of the items in coll starting from the first item
  * for which pred(item) logical false, i.e. false, null, undefined
