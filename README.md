@@ -1,27 +1,36 @@
-[![Build Status](https://travis-ci.org/landau/drop-while.svg)](https://travis-ci.org/landau/drop-while)
+[![Build Status](https://travis-ci.org/landau/reductions.svg)](https://travis-ci.org/landau/reductions)
 
-drop-while
+reductions
 ==========
 
-Returns an array of the items in coll starting from the first item for which pred(item) logical false, i.e. false, null, undefined
+Returns an array of intermediate values of the reduction (as per reduce) of coll by fn, starting with init.
 
 ```js
-function dropWhile(coll, pred, ctx) {}
+function reductions(coll, fn, init) { ... }
 ```
 
 ## Install
 
-`npm i -S drop-while`
+`npm i -S reductions`
 
 ## Usage
 
-```js
+``` js
 var assert = require('assert');
-var dropWhile = require('drop-while');
-var is = require('is-predicate');
+var reductions = require('./');
 
-var arr = [-1, -2, -6, -7, 1, 2, 3, 4, -5, -6, 0, 1];
-var expect = [1, 2, 3, 4, -5, -6, 0, 1];
-assert.deepEqual(dropWhile(arr, is.neg), expect); // true
+var coll = [1, 2, 3, 4, 5];
+var expect = [1, 3, 6, 10, 15];
+
+function add(a, b) {
+  return a + b;
+}
+
+// Without an initial value
+var arr = reductions(coll, add);
+assert.deepEqual(arr, expect);
+
+// WITH an initial value
+var arr = reductions(coll, add, 2);
+assert.deepEqual(arr, [2, 3, 5, 8, 12, 17]);
 ```
-
