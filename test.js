@@ -3,7 +3,7 @@
 const assert = require('assert');
 const predicate = require('predicate');
 const { describe, it } = require('mocha');
-const dropWhile = require('./');
+const dropWhile = require('.');
 
 describe('dropWhile', () => {
   it('should drop till negative numbers stop', () => {
