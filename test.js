@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require("assert");
-const dropWhile = require("./");
+const dropWhile = require(".");
 
 const isNegative = (n) => n < 0;
 
